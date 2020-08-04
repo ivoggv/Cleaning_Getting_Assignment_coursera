@@ -1,5 +1,6 @@
-
+library(plyr)
 library(dplyr)
+
 
 test_dir="./UCI HAR Dataset/test"
 train_dir="./UCI HAR Dataset/train"
@@ -28,9 +29,9 @@ train_sub=read.table(paste0(train_dir,"/subject_train.txt"))
 names(test_sub)="subject"
 names(train_sub)="subject"
 
-activity_test=test_act %>% merge(activity)
+activity_test=test_act %>% join(activity)
 names(activity_test)[2]="activity"
-activity_train=train_act %>% merge(activity)
+activity_train=train_act %>% join(activity)
 names(activity_train)[2]="activity"
 
 #### code just in case you wanted to differenciate as a variable if values are from training or test
