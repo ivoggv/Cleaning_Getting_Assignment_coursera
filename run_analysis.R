@@ -54,5 +54,5 @@ std=grep("*std*",x = names(dataset))
 dataset=dataset[,c(1:2,mean,std)]
 
 final_dataset=dataset %>% group_by(activity,subject) %>% summarise_all(funs(mean))
-#write.csv(final_dataset,"final_dataset.txt")
-write.table(final_dataset,"final_dataset.txt")
+write.csv(final_dataset,"final_dataset.txt")
+#write.table(final_dataset,"final_dataset.txt")
